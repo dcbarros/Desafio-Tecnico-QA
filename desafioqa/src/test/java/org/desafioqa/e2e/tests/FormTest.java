@@ -16,7 +16,7 @@ public class FormTest extends BaseTest{
 
     @Before
     public void setUp(){
-        formPage.clickForm();
+        formPage.clickFormTest();
     }
 
     @Test

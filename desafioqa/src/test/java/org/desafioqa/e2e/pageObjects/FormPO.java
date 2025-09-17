@@ -101,18 +101,18 @@ public class FormPO extends BasePO {
         dsl.escrever(mobileField, mobile);
 
         LocalDate dob = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        dsl.setDateByTyping(dateOfBirthField, dob, "dd MMM yyyy");
-        dsl.typeAndEnter(subjectsInput, subject);
+        dsl.setDataPorTipo(dateOfBirthField, dob, "dd MMM yyyy");
+        dsl.escreverEEnter(subjectsInput, subject);
 
         dsl.clicar(hobbiesSportsLabel);
 
         dsl.escrever(currentAddressField, currentAddress);
 
         dsl.clicar(stateContainer);
-        dsl.typeAndEnter(stateInput, state);
+        dsl.escreverEEnter(stateInput, state);
 
         dsl.clicar(cityContainer);
-        dsl.typeAndEnter(cityInput, city);
+        dsl.escreverEEnter(cityInput, city);
             
         String path = Paths.get("src","test","resources","massaDados","e2e", nomeArquivo)
                    .toAbsolutePath().toString();
