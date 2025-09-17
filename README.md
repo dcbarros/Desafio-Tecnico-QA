@@ -242,9 +242,10 @@ Fluxo:
 
 ## 6) Relatórios (Allure)
 
-- Dependências: `io.qameta.allure:allure-junit5` e `allure-rest-assured` (caso deseje anexar requests/responses em chamadas específicas com filtros — _não obrigatório_ para JUnit).
-- Plugin Maven: `io.qameta.allure:allure-maven` (goal `report` atrelado ao **verify**).
+- Dependências: `io.qameta.allure:allure-junit5` e `allure-rest-assured`.
+- Plugin Maven: `io.qameta.allure:allure-maven`.
 - Saída:
   - Resultados: `target/allure-results/`
 
   - HTML estático: `target/allure-report/index.html`
+
