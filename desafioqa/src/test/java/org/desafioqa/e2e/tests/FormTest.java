@@ -20,8 +20,8 @@ public class FormTest extends BaseTest{
     }
 
     @Test
-    public void testPreencherFormulario(){
-        
+    public void givenUser_whenPreencherFormulario_thenDadosDevemConferir(){
+
         formPage.preencherFormulario(
             user.getFirstName(), 
             user.getLastName(), 

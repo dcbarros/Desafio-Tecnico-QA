@@ -17,7 +17,7 @@ public class AlertsFrameEWindowsTest extends BaseTest{
     }
 
     @Test
-    public void acessarNovaJanela() {
+    public void whenClicarNewWindow_thenNovaJanelaDeveSerExibida() {
         alertsFrameEWindowsPage.clicarNewWindow();
         assertEquals("This is a sample page", alertsFrameEWindowsPage.obterTextoNovaJanela());
         alertsFrameEWindowsPage.fecharNovaJanela();

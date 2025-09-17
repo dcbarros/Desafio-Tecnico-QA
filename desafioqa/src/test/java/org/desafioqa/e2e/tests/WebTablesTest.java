@@ -24,7 +24,7 @@ public class WebTablesTest extends BaseTest {
 
     @Test
     @Order(1)
-    public void criarRegistro() {
+    public void givenValidData_whenCriarRegistro_thenRegistroDeveSerCriado() {
 
         assertTrue("Registro não localizado após criar", webTablesPO.existeRegistroPorEmail(dados.getEmail()));
 
@@ -32,8 +32,8 @@ public class WebTablesTest extends BaseTest {
 
     @Test
     @Order(2)
-    public void editarRegistro() {
-        
+    public void givenEditValidData_whenEditarRegistro_thenRegistroDeveSerEditado() {
+
         webTablesPO.editarPorEmail(dados.getEmail(), dadosEditado);
         assertTrue("Registro editado não localizado", webTablesPO.existeRegistroPorEmail(dadosEditado.getEmail()));
         assertFalse("Registro antigo ainda presente após edição", webTablesPO.existeRegistroPorEmail(dados.getEmail()));
@@ -42,7 +42,7 @@ public class WebTablesTest extends BaseTest {
 
     @Test
     @Order(3)
-    public void deletarRegistro() {
+    public void givenValidData_whenDeletarRegistro_thenRegistroDeveSerDeletado() {
 
         webTablesPO.deletarPorEmail(dados.getEmail());
         assertFalse("Registro ainda presente após deletar", webTablesPO.existeRegistroPorEmail(dados.getEmail()));
