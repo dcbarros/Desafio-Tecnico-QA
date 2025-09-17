@@ -19,7 +19,7 @@ public class DriverFactory {
         if(driver == null) {
             WebDriverManager.chromedriver().setup();
             options = new ChromeOptions();
-            options.addArguments(Arrays.asList("--start-maximized"));
+            options.addArguments(Arrays.asList("--start-maximized", "--headless=new", "--disable-gpu", "--window-size=1920,1080"));
             driver = new ChromeDriver(options);            
         }
         return driver;

@@ -1,14 +1,16 @@
 package org.desafioqa.e2e.tests;
 
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.desafioqa.e2e.core.BaseTest;
 import org.desafioqa.e2e.pageObjects.InteractionsPO;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 public class InteractionsTest extends BaseTest {
     
@@ -16,7 +18,7 @@ public class InteractionsTest extends BaseTest {
 
     private final List<String> ordemEsperada = Arrays.asList("Six","Five", "Four", "Three", "Two", "One");
 
-    @Before
+    @BeforeEach
     public void setUp() {
         interactionsPO.clickInteractionsTest();
     }

@@ -1,20 +1,21 @@
 package org.desafioqa.e2e.tests;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.desafioqa.e2e.core.BaseTest;
 import org.desafioqa.e2e.models.UserForm;
 import org.desafioqa.e2e.pageObjects.FormPO;
 import org.desafioqa.utils.DataLoader;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Assert;
 
 public class FormTest extends BaseTest{
 
     FormPO formPage = new FormPO(driver);
     UserForm user = DataLoader.fromResource("/massaDados/e2e/formTest.json", UserForm.class);
 
-    @Before
+    @BeforeEach
     public void setUp(){
         formPage.clickFormTest();
     }
@@ -35,8 +36,8 @@ public class FormTest extends BaseTest{
             "form-auto.txt"
         );
         
-        Assert.assertTrue(formPage.modalEstaVisivel());
-        Assert.assertTrue("Os dados do formulário não conferem!", formPage.validarFormularioPreenchido(user));
+        assertTrue(formPage.modalEstaVisivel());
+        assertTrue(formPage.validarFormularioPreenchido(user), "Os dados do formulário não conferem!");
 
         formPage.fecharModal();
     }

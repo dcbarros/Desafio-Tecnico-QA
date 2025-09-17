@@ -1,17 +1,20 @@
 package org.desafioqa.e2e.tests;
 
-import static org.junit.Assert.assertTrue;
+
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.desafioqa.e2e.core.BaseTest;
 import org.desafioqa.e2e.pageObjects.WidgetPO;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class WidgetTest extends BaseTest {
     
     WidgetPO widgetPO = new WidgetPO(driver);
 
-    @Before
+    @BeforeEach
     public void setup() {
         widgetPO.clickWidgetTest();
     }
@@ -20,7 +23,7 @@ public class WidgetTest extends BaseTest {
     public void whenClickStartAndClickStopThenProgressBarLess25Percent() throws InterruptedException {
         widgetPO.clicarEPararPertoDe(20);
         int valorProgresso = Integer.parseInt(widgetPO.obterValorProgresso());
-        assertTrue("Esperava < 25, veio " + valorProgresso, valorProgresso < 25);
+        assertTrue(valorProgresso < 25, "Esperava < 25, veio " + valorProgresso);
     }
 
     @Test
@@ -28,6 +31,6 @@ public class WidgetTest extends BaseTest {
         widgetPO.clicarEPararPertoDe(100);
         widgetPO.clicarReset();
         int valorProgresso = Integer.parseInt(widgetPO.obterValorProgresso());
-        assertTrue("Esperava 0, veio " + valorProgresso, valorProgresso == 0);
+        assertTrue(valorProgresso == 0, "Esperava 0, veio " + valorProgresso);
     }
 }
