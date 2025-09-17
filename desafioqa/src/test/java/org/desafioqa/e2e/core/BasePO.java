@@ -8,7 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 public class BasePO {
 
     protected DSL dsl;
-    
+    protected WebDriver driver;
+
     @FindBy(xpath = "//*[text()='Forms']/../../..")
     private WebElement formCardButton;
 
@@ -36,6 +37,7 @@ public class BasePO {
 
     public BasePO(WebDriver driver) {
         this.dsl = new DSL(driver);
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
