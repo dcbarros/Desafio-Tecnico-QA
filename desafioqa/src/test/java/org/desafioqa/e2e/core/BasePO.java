@@ -19,6 +19,10 @@ public class BasePO {
     @FindBy(xpath = "//*[text()='Elements']/../../..")
     private WebElement elementsCardButton;
 
+    @FindBy(xpath = "//*[text()='Widgets']/../../..")
+    private WebElement widgetsCardButton;
+
+
     @FindBy(xpath = "//*[text()='Forms']/../../..//div[contains(@class,'collapse')]")
     private WebElement formSubMenu;
 
@@ -28,12 +32,17 @@ public class BasePO {
     @FindBy(xpath = "//*[text()='Elements']/../../..//div[contains(@class,'collapse')]")
     private WebElement elementsSubMenu;
 
+    @FindBy(xpath = "//*[text()='Widgets']/../../..//div[contains(@class,'collapse')]")
+    private WebElement widgetsSubMenu;
+
     @FindBy(xpath = "//*[text()='Web Tables']/..")
     private WebElement btnWebTables;
 
     @FindBy(xpath = "//*[text()='Browser Windows']/..")
     private WebElement btnBrowserWindows;
 
+    @FindBy(xpath = "//*[text()='Progress Bar']/..")
+    private WebElement btnProgressBar;
 
     public BasePO(WebDriver driver) {
         this.dsl = new DSL(driver);
@@ -63,6 +72,13 @@ public class BasePO {
         dsl.clicar(elementsCardButton);
         if(elementsSubMenu.getAttribute("class").contains("show")){
             dsl.clicar(btnWebTables);
+        }
+    }
+
+    public void clickWidgetTest() {
+        dsl.clicar(widgetsCardButton);
+        if(widgetsSubMenu.getAttribute("class").contains("show")){
+            dsl.clicar(btnProgressBar);
         }
     }
 }

@@ -90,5 +90,31 @@ public class DSL {
         driver.switchTo().window(handleOriginal);
     }
 
-    /* ========= Tabelas ========= */
+    /* ========= Esperas específicas ========= */
+    
+    public void esperarAteAtributoNoIntervalo(WebElement el, String attr,
+                                            int minIncl, int maxExcl,
+                                            long timeoutSeg, long pollingMs) {
+        new WebDriverWait(driver, java.time.Duration.ofSeconds(timeoutSeg))
+            .pollingEvery(java.time.Duration.ofMillis(pollingMs))
+            .until(d -> {
+                String val = el.getAttribute(attr);
+                if (val == null || val.isEmpty()) return false;
+                int v = Integer.parseInt(val);
+                return v >= minIncl && v < maxExcl;
+            });
+    }
+
+    public void esperarAtributoEstabilizar(WebElement el, String attr, long quietMillis, long maxSegundos) {
+    long fim = System.currentTimeMillis() + maxSegundos * 1000;
+    String ultimo = el.getAttribute(attr);
+    long desde = System.currentTimeMillis();
+    while (System.currentTimeMillis() < fim) {
+        String atual = el.getAttribute(attr);
+        if (!atual.equals(ultimo)) { ultimo = atual; desde = System.currentTimeMillis(); }
+        if (System.currentTimeMillis() - desde >= quietMillis) return;
+        try { Thread.sleep(30); } catch (InterruptedException ignored) {}
+    }
+    throw new org.openqa.selenium.TimeoutException("Atributo não estabilizou em " + maxSegundos + "s");
+}
 }
