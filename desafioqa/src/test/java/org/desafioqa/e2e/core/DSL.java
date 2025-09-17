@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -117,4 +118,23 @@ public class DSL {
     }
     throw new org.openqa.selenium.TimeoutException("Atributo não estabilizou em " + maxSegundos + "s");
 }
+
+    /* ========= Drag and Drop ========= */
+
+    public void arrastarSoltar(WebElement origem, WebElement destino) {
+        garantirVisiveis(origem, destino);
+        new Actions(driver)
+            .dragAndDrop(origem, destino)
+            .build()
+            .perform();
+    }
+
+    /* ===================== Utilitários privados ===================== */
+
+    private void garantirVisiveis(WebElement... elementos) {
+        for (WebElement el : elementos) {
+            scrollToElement(el);
+            wait.until(ExpectedConditions.visibilityOf(el));
+        }
+    }
 }
