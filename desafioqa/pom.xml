@@ -8,7 +8,7 @@
   <artifactId>desafioqa-api-tests</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>desafioqa-api-tests</name>
-  <description>API tests (Rest Assured + JUnit 5 + Testcontainers) - Java 8</description>
+  <description>API tests - Java 8</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,7 +20,6 @@
     <junit.platform.version>1.10.5</junit.platform.version>
 
     <restassured.version>5.3.2</restassured.version>
-    <testcontainers.version>1.18.3</testcontainers.version>
     <jackson.version>2.15.3</jackson.version>
     <webdrivermanager.version>5.6.0</webdrivermanager.version>
     <selenium.version>4.11.0</selenium.version>
